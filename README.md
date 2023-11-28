@@ -20,7 +20,7 @@ Please ensure you have access to Cadence IC 5.0.33 or a compatible version to ru
 
 To import the library into your Cadence environment, follow these steps:
 
-1. Extract the contents of the file: "ElectrophotonicMacromodels.tar.gz" into the current working directory of your respective Cadence environment.
+1. Extract the contents of the file: "ElectrophotonicMacromodels.zip" into the current working directory of your respective Cadence environment.
 
 2. Locate the "cds.lib" file in your working directory and add the following line:
 DEFINE ElectrophotonicMacromodels path_to_the_recently_extracted_folder
@@ -45,6 +45,25 @@ enddiscipline
 
 These lines define the optical nature and discipline settings required for the simulation. Be sure to add these lines to your "disciplines.vams" file as specified to ensure proper simulation behavior.
 
-4. Restart your Cadence session if it was already initiated.
+
+4. **Edit Verilog-A Files:**
+
+   - Open the file "veriloga.va" located within the "LEC_macromodel" folder.
+   - Locate the lines containing:
+     ```
+     R=$table_model(Area,V(inp,inn),"/home/thedock/DoctoradoFausto/lookupLEC.txt","3S,3L");
+     ```
+     Edit the path within the double quotes to reflect the location where you downloaded and extracted the contents of the "LookUp.zip" file on your system.
+
+   - Similarly, open the "veriloga.va" file within the "wavesensor_macromodel" folder.
+   - Find the line:
+     ```
+     id = $table_model(OptPwr(opt),vds,"/mnt/hgfs/Compartido Con Maquinas Virtuales/lookupWaved.txt","3S,3L");
+     ```
+     Adjust the path within the double quotes to match the location where you downloaded and extracted the contents of the "LookUp.zip" file on your system.
+
+
+
+5. Restart your Cadence session if it was already initiated.
 
 These steps will ensure that the library is properly imported and accessible within your Cadence environment.
